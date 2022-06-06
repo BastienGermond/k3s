@@ -1,0 +1,11 @@
+---
+kind: Kustomization
+namespace: argocd
+
+resources:
+  - namespace.yml
+  - github.com/argoproj/argo-cd/manifests/cluster-install?ref=v2.3.4
+  - ingress.yml
+
+patchesStrategicMerge:
+  - patch-argocd-application-controller.yml
